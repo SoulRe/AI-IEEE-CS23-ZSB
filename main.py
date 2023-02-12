@@ -1,4 +1,4 @@
-import getting_info1
+import getting_info
 
 
 def gauss_jordan_elimination(matrix, elements):
@@ -43,11 +43,22 @@ def gauss_jordan_elimination(matrix, elements):
         
     
 def main():
-    matrix = getting_info1.main()
+    matrix = getting_info.main()
     elements = len(matrix)
     
     return_value = gauss_jordan_elimination(matrix,elements)
     
     with open('solution.txt', 'w', encoding='utf-8') as solution:
-        solution.write(return_value)
+        solution.write(return_value+"\n\n\n\n\n\n\n\n\n\n\n")
+        solution.write("-------------\              -----------------  \n")
+        solution.write("|             \              |\n")
+        solution.write("|              \             |\n")
+        solution.write("|              |             |\n")
+        solution.write("|              |             |\n")
+        solution.write("|              |             |---------------\n")
+        solution.write("|              |             |\n")
+        solution.write("|              /             |\n")
+        solution.write("|             /              |\n")
+        solution.write("-------------/               ----------------\n")
+            
 main()
