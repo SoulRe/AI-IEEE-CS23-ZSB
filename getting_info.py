@@ -174,7 +174,7 @@ def examples(elements):
         examp.write("This file is your catalogue to use this program.\n\n\
 First, Store your equations in a text file named 'equations.txt'.\n\n\
 If you have {} equations, Your text file should be like this:\n\n\
-Number of equations: {}\n\n".format(elements, elements))
+Number of equations: {}\n".format(elements, elements))
         
         for i in range(elements):
             string = "eq{}: "
