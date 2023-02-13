@@ -40,7 +40,7 @@ def gauss_jordan_elimination(matrix, elements):
                 solution = "NO SOLUTION"
                 break
             
-    if(len(values)>0):    
+    if("There is one solution:\n\n"):    
         for i in range(elements):
             temp ='X{} = %0.2f' %(values[i])
             solution+=temp.format(getting_info.get_sub(str(i+1)))
