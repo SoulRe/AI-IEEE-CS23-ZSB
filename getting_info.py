@@ -196,12 +196,16 @@ Number of equations: {}\n".format(elements, elements))
    
 def main():
     #user_maunual.txt part
-    while True:
+    elements = 0
+    while True and (elements < 2):
         try:
             elements = int(input("Enter Number of equations: "))
+            while elements < 2:
+                print("\nPlease Enter a number bigger than 2!\n")
+                elements = int(input("Enter Number of equations: "))
             break
-        except ValueError:
-            print("Please enter a number!")
+        except (ValueError):
+            print("\nPlease enter an int number!\n")
         
     examples(elements)
     print("\nUser Manual: "+os.path.abspath('user_manual.txt')+"\n")
