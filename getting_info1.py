@@ -169,7 +169,7 @@ def main():
         try:
             elements = int(input("Enter Number of equations: "))
             break
-        except ValueError:
+        except ValueError, elements < 2:
             print("Please enter a number!")
         
     examples(elements)
