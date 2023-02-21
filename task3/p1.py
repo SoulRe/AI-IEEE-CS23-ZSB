@@ -78,7 +78,8 @@ def get_mode(numbers_list):
     
     #checking if each number has appeared only once
     if sum_of_appearances == len(numbers):
-        return "This list has no Mode"
+        print("This list has no Mode")
+        exit()
     
     #adding all the numbers that have the same freq as the most freq number to the return list and returning it
     else:
@@ -97,7 +98,7 @@ def main():
         return
     
     #printing the mean
-    print("mean = %0.3f" % get_mean(numbers_list, length))
+    print("\nmean = %0.3f" % get_mean(numbers_list, length))
     
     #printing the median
     print("median = ",get_median(numbers_list, length))
@@ -108,8 +109,7 @@ def main():
     if len(mode_list) > 1:
         print("This list is multimodal!")
         print("modes =", end = " ")
-    else : print("mode = ", end = " ")
-    
+        
     #printing each number in the list
     for i in range(len(mode_list)):
         if i == len(mode_list) - 1:
