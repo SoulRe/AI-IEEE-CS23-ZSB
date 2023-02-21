@@ -78,7 +78,7 @@ def get_mode(numbers_list):
     
     #checking if each number has appeared only once
     if sum_of_appearances == len(numbers):
-        print("This list has no Mode")
+        print("This list has no Mode!")
         exit()
     
     #adding all the numbers that have the same freq as the most freq number to the return list and returning it
@@ -109,6 +109,8 @@ def main():
     if len(mode_list) > 1:
         print("This list is multimodal!")
         print("modes =", end = " ")
+    else:
+        print("mode = ", end = " ")
         
     #printing each number in the list
     for i in range(len(mode_list)):
