@@ -1,4 +1,4 @@
-import itertools as tools
+import math
 
 
 def get_event():
@@ -29,11 +29,6 @@ def get_flips():
             
             if num_of_flips < 1:
                 print("Please enter a number bigger than 0!")
-                continue
-            
-            #limiting the flips to 24 as it will take a long time and could crash your pc (i tried :P!)
-            if num_of_flips > 24:
-                print("Please enter a number less than 24!")
                 continue
             break
         
@@ -82,37 +77,6 @@ def get_probabilty(event):
     return event_probaility
 
 
-
-def make_truth_table(num_of_flips, event, event_appearances):
-    #solving using truth table was much easier, as i couldn't figure out a different way to get the count accurately
-    """Function to create a truth table of soltions to check the count of specific 
-       appearances the user entered
-
-    Args:
-        num_of_flips (int): size of truth table 2**num_of_flips
-        event (str): event flag to check for and count 
-        event_appearances (_type_): how many times the event appeared in the amount of flips
-
-    Returns:
-        count(int): number of times the appearance pattern happened in the truth table
-    """
-    count = 0
-    
-    #creating the truthtable using the product function from the itertools library
-    try :
-        table = list(tools.product(["head", "tail"], repeat= num_of_flips))
-        # for k in table: print(k)
-        
-        #looping over the truth table and checking the freq of appearance pattern
-        for i in range(len(table)):
-            if table[i].count(event.lower()) == event_appearances:
-                count += 1
-    except KeyboardInterrupt:
-        print("\nExited!")
-        exit()
-    
-    return count
-        
     
     
 def main():
@@ -124,7 +88,9 @@ def main():
     event_appearances  = get_appearances(event, num_of_flips)
     #getting the event probability from the user
     event_probabilty = get_probabilty(event)   
-    count = make_truth_table(num_of_flips, event, event_appearances)
+    
+    #using comb library from math function to get freq of appearance pattern
+    count = math.comb(num_of_flips, event_appearances)
     
     #probabilty answer: it's the probabilty of current event * how many times is appeared * the probability of the other event * how many times it appeared * the freq of the pattern in the truth table
     answer = ((event_probabilty ** event_appearances) * ((1 - event_probabilty) ** (num_of_flips - event_appearances))) * count
